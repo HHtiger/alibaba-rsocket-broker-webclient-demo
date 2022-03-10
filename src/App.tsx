@@ -54,11 +54,7 @@ function App() {
               {
                 onError: (e) => reject(e),
                 onNext: (payload, isComplete) => {
-                  console.log(
-                      `payload[data: ${payload.data}; metadata: ${payload.metadata}]|${isComplete}`
-                  );
-                  console.info(payload.data?.toString())
-                  resolve(payload);
+                  console.info(JSON.parse(payload.data?.toString()!))
                 },
                 onComplete: () => {
                   resolve(null);
